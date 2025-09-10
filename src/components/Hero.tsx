@@ -142,7 +142,7 @@ export function Hero({ onViewWork, onGetInTouch }: HeroProps) {
             <ProfileCard
               name="Shubham Bhatt"
               title="Full-Stack Developer"
-              handle="shubhambhatt037"
+              handle="shubham"
               status="Available"
               contactText="Get in Touch"
               avatarUrl="/lovable-uploads/profile-pic.png"
