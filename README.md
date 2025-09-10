@@ -1,73 +1,117 @@
-# Welcome to your Lovable project
+# Shubham Bhatt - Portfolio Website
 
-## Project info
+A modern, responsive portfolio website showcasing my work as a Full-Stack Developer and AI enthusiast.
 
-**URL**: https://lovable.dev/projects/6b6eadf8-9c39-4685-b630-3fae3777b54a
+## 🚀 Live Demo
 
-## How can I edit this code?
+Visit the live website: [shubhambhatt.dev](https://shubhambhatt.dev)
 
-There are several ways of editing your application.
+## 🛠️ Technologies Used
 
-**Use Lovable**
+This project is built with modern web technologies:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/6b6eadf8-9c39-4685-b630-3fae3777b54a) and start prompting.
+- **Vite** - Fast build tool and development server
+- **TypeScript** - Type-safe JavaScript
+- **React 18** - Modern React with hooks and functional components
+- **shadcn/ui** - Beautiful, accessible UI components
+- **Tailwind CSS** - Utility-first CSS framework
+- **Lucide React** - Beautiful & consistent icon toolkit
 
-Changes made via Lovable will be committed automatically to this repo.
+## 📁 Project Structure
 
-**Use your preferred IDE**
+```
+src/
+├── components/          # Reusable UI components
+│   ├── ui/             # shadcn/ui components
+│   ├── Hero.tsx        # Landing section
+│   ├── About.tsx       # About section
+│   ├── Experience.tsx  # Work experience
+│   ├── Portfolio.tsx   # Project showcase
+│   └── ...
+├── pages/              # Page components
+├── hooks/              # Custom React hooks
+├── lib/                # Utility functions
+└── assets/             # Static assets
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🚀 Getting Started
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Prerequisites
 
-Follow these steps:
+- Node.js (v18 or higher)
+- npm or yarn
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Installation
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+1. Clone the repository:
+```bash
+git clone https://github.com/shubhambhatt037/portfolio-website.git
+cd portfolio-website
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+2. Install dependencies:
+```bash
+npm install
+```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+4. Open [http://localhost:8080](http://localhost:8080) in your browser.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📝 Available Scripts
 
-**Use GitHub Codespaces**
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🎨 Features
 
-## What technologies are used for this project?
+- **Responsive Design** - Works perfectly on all devices
+- **Modern UI/UX** - Clean, professional design with smooth animations
+- **SEO Optimized** - Comprehensive meta tags and structured data
+- **Fast Performance** - Optimized images and code splitting
+- **Accessibility** - WCAG compliant components
+- **Dark/Light Theme** - Automatic theme detection
 
-This project is built with:
+## 📱 Sections
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Hero** - Introduction and call-to-action
+- **About** - Personal background and skills
+- **Experience** - Work history and achievements
+- **Coding Profiles** - Competitive programming profiles
+- **Portfolio** - Featured projects and work
+- **Contributions** - Open source contributions
+- **Contact** - Get in touch form
 
-## How can I deploy this project?
+## 🔧 Customization
 
-Simply open [Lovable](https://lovable.dev/projects/6b6eadf8-9c39-4685-b630-3fae3777b54a) and click on Share -> Publish.
+To customize this portfolio for your own use:
 
-## Can I connect a custom domain to my Lovable project?
+1. Update personal information in components
+2. Replace images in `/public/assets/`
+3. Modify the color scheme in `tailwind.config.ts`
+4. Update social media links
+5. Add your own projects to the Portfolio component
 
-Yes, you can!
+## 📄 License
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+This project is open source and available under the [MIT License](LICENSE).
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/shubhambhatt037/portfolio-website/issues).
+
+## 📞 Contact
+
+- **Email**: [shubhambhatt037@gmail.com](mailto:shubhambhatt037@gmail.com)
+- **LinkedIn**: [shubham-bhatt-48b002250](https://linkedin.com/in/shubham-bhatt-48b002250)
+- **GitHub**: [shubhambhatt037](https://github.com/shubhambhatt037)
+- **Twitter**: [@bhattbuilds](https://twitter.com/bhattbuilds)
+
+---
+
+⭐ Star this repository if you found it helpful!

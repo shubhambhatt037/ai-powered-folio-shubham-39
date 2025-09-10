@@ -145,7 +145,7 @@ export function Hero({ onViewWork, onGetInTouch }: HeroProps) {
               handle="shubham"
               status="Available"
               contactText="Get in Touch"
-              avatarUrl="/lovable-uploads/profile-pic.png"
+              avatarUrl="/assets/shubham-profile.jpg"
               showUserInfo={true}
               enableTilt={true}
               enableMobileTilt={false}

@@ -45,7 +45,7 @@ interface ProfileCardProps {
 }
 
 const ProfileCardComponent: React.FC<ProfileCardProps> = ({
-  avatarUrl = '/lovable-uploads/profile-pic.png',
+  avatarUrl = '/assets/shubham-profile.jpg',
   iconUrl,
   grainUrl,
   behindGradient,
