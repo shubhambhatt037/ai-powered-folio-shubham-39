@@ -32,20 +32,20 @@ export function FloatingParticles() {
     }> = [];
 
     const colors = [
-      'rgba(59, 130, 246, 0.3)', // Blue
-      'rgba(34, 197, 94, 0.2)',  // Green
-      'rgba(168, 85, 247, 0.25)', // Purple
+      'rgba(0, 213, 255, 0.2)',   // Neon Cyan
+      'rgba(0, 200, 150, 0.15)',  // Teal
+      'rgba(0, 180, 220, 0.18)', // Deep Cyan
     ];
 
     // Create particles
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 35; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        size: Math.random() * 3 + 1,
-        opacity: Math.random() * 0.5 + 0.1,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        size: Math.random() * 2 + 0.5,
+        opacity: Math.random() * 0.4 + 0.1,
         color: colors[Math.floor(Math.random() * colors.length)]
       });
     }

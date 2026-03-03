@@ -1,57 +1,160 @@
-import { Github, Linkedin, Twitter, Heart } from 'lucide-react';
+"use client";
+import React from "react";
+import {
+  Mail,
+  MapPin,
+  Github,
+  Linkedin,
+  Twitter,
+} from "lucide-react";
+import { FooterBackgroundGradient, TextHoverEffect } from "@/components/ui/hover-footer";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear();
+  // Footer link data
+  const footerLinks = [
+    {
+      title: "About",
+      links: [
+        { label: "About Me", href: "#about" },
+        { label: "Experience", href: "#experience" },
+        { label: "Coding Profiles", href: "#coding-profiles" },
+      ],
+    },
+    {
+      title: "Work",
+      links: [
+        { label: "Portfolio", href: "#portfolio" },
+        { label: "Open Source", href: "#contributions" },
+        {
+          label: "Let's Talk",
+          href: "#contact",
+          pulse: true,
+        },
+      ],
+    },
+  ];
+
+  // Contact info data
+  const contactInfo = [
+    {
+      icon: <Mail size={18} className="text-[#00d5ff]" />,
+      text: "Get in Touch",
+      href: "#contact",
+    },
+    {
+      icon: <MapPin size={18} className="text-[#00d5ff]" />,
+      text: "India",
+    },
+  ];
+
+  // Social media icons
+  const socialLinks = [
+    { icon: <Github size={20} />, label: "GitHub", href: "https://github.com/shubhambhatt037" },
+    { icon: <Linkedin size={20} />, label: "LinkedIn", href: "https://linkedin.com/in/shubham-bhatt-48b002250" },
+    { icon: <Twitter size={20} />, label: "Twitter", href: "https://twitter.com/bhattbuilds" },
+  ];
 
   return (
-    <footer className="bg-card/30 border-t border-border/50 backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          {/* Brand */}
-          <div className="mb-4 md:mb-0">
-            <div className="text-xl font-bold gradient-text">Shubham Bhatt</div>
-            <p className="text-muted-foreground text-sm">Full-Stack Developer exploring AI + Web</p>
+    <footer className="bg-[#0F0F11]/10 relative h-fit rounded-3xl overflow-hidden m-8 border border-white/[0.04]">
+      <div className="max-w-7xl mx-auto p-14 z-40 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-16 pb-12">
+          {/* Brand section */}
+          <div className="flex flex-col space-y-4">
+            <div className="flex items-center space-x-2">
+              <span className="text-[#00d5ff] text-3xl font-extrabold">
+                &hearts;
+              </span>
+              <span className="text-white text-3xl font-bold" style={{ fontFamily: 'var(--font-display)' }}>SHUBHAM BHATT</span>
+            </div>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Full-Stack Developer exploring AI + Web
+            </p>
           </div>
 
-          {/* Social Links */}
-          <div className="flex items-center space-x-6">
-            <a
-              href="https://github.com/shubhambhatt037"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-smooth"
-              aria-label="GitHub"
-            >
-              <Github size={20} />
-            </a>
-            <a
-              href="https://linkedin.com/in/shubham-bhatt-48b002250"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-smooth"
-              aria-label="LinkedIn"
-            >
-              <Linkedin size={20} />
-            </a>
-            <a
-              href="https://twitter.com/bhattbuilds"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-smooth"
-              aria-label="Twitter"
-            >
-              <Twitter size={20} />
-            </a>
+          {/* Footer link sections */}
+          {footerLinks.map((section) => (
+            <div key={section.title}>
+              <h4 className="text-white text-lg font-semibold mb-6">
+                {section.title}
+              </h4>
+              <ul className="space-y-3">
+                {section.links.map((link) => (
+                  <li key={link.label} className="relative">
+                    <a
+                      href={link.href}
+                      className="text-muted-foreground hover:text-[#00d5ff] transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                    {link.pulse && (
+                      <span className="absolute top-0 right-[-10px] w-2 h-2 rounded-full bg-[#00d5ff] animate-pulse"></span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
+          {/* Contact section */}
+          <div>
+            <h4 className="text-white text-lg font-semibold mb-6">
+              Contact Us
+            </h4>
+            <ul className="space-y-4 text-muted-foreground">
+              {contactInfo.map((item, i) => (
+                <li key={i} className="flex items-center space-x-3">
+                  {item.icon}
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      className="hover:text-[#00d5ff] transition-colors"
+                    >
+                      {item.text}
+                    </a>
+                  ) : (
+                    <span className="hover:text-[#00d5ff] transition-colors">
+                      {item.text}
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="mt-8 pt-6 border-t border-border/50">
-          <div className="flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
-            <p>© {currentYear} Shubham Bhatt. All rights reserved.</p>
+        <hr className="border-t border-white/[0.04] my-8" />
+
+        {/* Footer bottom */}
+        <div className="flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0 text-muted-foreground">
+          {/* Social icons */}
+          <div className="flex space-x-6">
+            {socialLinks.map(({ icon, label, href }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#00d5ff] transition-colors"
+              >
+                {icon}
+              </a>
+            ))}
           </div>
+
+          {/* Copyright */}
+          <p className="text-center md:text-left mono-label" style={{ fontSize: '0.65rem' }}>
+            &copy; {new Date().getFullYear()} SHUBHAM BHATT. All rights reserved.
+          </p>
         </div>
       </div>
+
+      {/* Text hover effect */}
+      <div className="lg:flex hidden h-[30rem] -mt-52 -mb-36">
+        <TextHoverEffect text="SHUBHAM BHATT" className="z-50" />
+      </div>
+
+      <FooterBackgroundGradient />
     </footer>
   );
 }

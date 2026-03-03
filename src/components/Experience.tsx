@@ -1,6 +1,8 @@
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Building2, Calendar } from 'lucide-react';
+import { ScrollReveal, StaggerContainer, StaggerItem } from './ScrollReveal';
+import { motion } from 'framer-motion';
 
 export function Experience() {
   const experiences = [
@@ -35,101 +37,89 @@ export function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-24 bg-background relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="floating-dots-container">
-        {[...Array(12)].map((_, i) => (
-          <div
-            key={i}
-            className="floating-dot"
-            style={{
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 20}s`,
-              animationDuration: `${20 + Math.random() * 15}s`,
-            }}
-          />
-        ))}
-      </div>
-      
-      <div className="glow-orb glow-orb-2"></div>
-      <div className="glow-orb glow-orb-3"></div>
-      
+    <section id="experience" className="py-32 bg-background relative overflow-hidden">
+      <div className="section-divider mb-32" />
+
+      {/* Subtle background elements */}
+      <div className="glow-orb glow-orb-2" />
+
       <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 relative z-10">
         {/* Header */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 bg-accent/10 rounded-full px-4 py-2 mb-6">
-            <div className="w-2 h-2 bg-accent rounded-full animate-pulse-glow"></div>
-            <span className="text-sm font-medium text-accent uppercase tracking-wider">Professional Journey</span>
-          </div>
-          
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 gradient-text">
+        <ScrollReveal className="text-center mb-20">
+          <span className="section-label block mb-4">Professional Journey</span>
+          <h2 className="section-title mb-4 gradient-text">
             Experience
           </h2>
-          <p className="text-lg text-muted-foreground/80 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-muted-foreground/70 max-w-3xl mx-auto leading-relaxed">
             My professional experience spans fintech development and technical content creation,
             delivering impactful solutions and knowledge sharing.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Experience Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <StaggerContainer className="grid grid-cols-1 lg:grid-cols-2 gap-8" staggerDelay={0.2}>
           {experiences.map((experience) => (
-            <Card key={experience.id} className="project-card h-full">
-              <CardHeader className="pb-4">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      <Building2 className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <CardTitle className="text-xl font-semibold text-foreground">
-                        {experience.company}
-                      </CardTitle>
-                      <div className="flex items-center gap-2 mt-1">
-                        <Badge variant="secondary" className="text-xs bg-muted/50">
-                          {experience.role}
-                        </Badge>
+            <StaggerItem key={experience.id}>
+              <motion.div
+                whileHover={{ y: -6 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
+                <Card className="project-card h-full">
+                  <CardHeader className="pb-4">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 bg-primary/10 rounded-lg">
+                          <Building2 className="w-5 h-5 text-primary" />
+                        </div>
+                        <div>
+                          <CardTitle className="text-xl font-semibold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+                            {experience.company}
+                          </CardTitle>
+                          <div className="flex items-center gap-2 mt-1">
+                            <Badge variant="secondary" className="text-xs bg-primary/10 text-primary border-primary/20">
+                              {experience.role}
+                            </Badge>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-2 text-sm text-muted-foreground/80 mb-4">
-                  <Calendar className="w-4 h-4" />
-                  {experience.period}
-                </div>
-                
-                <CardDescription className="text-muted-foreground/80 leading-relaxed">
-                  {experience.description}
-                </CardDescription>
-              </CardHeader>
 
-              <CardContent className="pt-0 space-y-6">
-                {/* Key Achievements */}
-                <div>
-                  <h4 className="text-sm font-semibold text-foreground mb-3">Key Achievements</h4>
-                  <ul className="space-y-2">
-                    {experience.achievements.map((achievement, index) => (
-                      <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground/80">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                        {achievement}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground/60 mb-4 mono-label" style={{ fontSize: '0.75rem' }}>
+                      <Calendar className="w-3.5 h-3.5" />
+                      {experience.period}
+                    </div>
 
-                {/* Tech Stack */}
-                <div className="tech-badges flex flex-wrap gap-2 pt-2">
-                  {experience.tags.map((tag) => (
-                    <Badge key={tag} variant="secondary" className="text-xs bg-muted/50 hover:bg-muted/70 transition-colors">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                    <CardDescription className="text-muted-foreground/70 leading-relaxed">
+                      {experience.description}
+                    </CardDescription>
+                  </CardHeader>
+
+                  <CardContent className="pt-0 space-y-6">
+                    <div>
+                      <h4 className="text-sm font-semibold text-foreground mb-3" style={{ fontFamily: 'var(--font-display)' }}>Key Achievements</h4>
+                      <ul className="space-y-2">
+                        {experience.achievements.map((achievement, index) => (
+                          <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground/70">
+                            <div className="w-1 h-1 bg-primary rounded-full mt-2 flex-shrink-0" />
+                            {achievement}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="tech-badges flex flex-wrap gap-2 pt-2">
+                      {experience.tags.map((tag) => (
+                        <Badge key={tag} variant="secondary" className="text-xs bg-white/[0.03] border border-white/[0.06] text-muted-foreground/80 hover:bg-white/[0.06] transition-colors">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );
