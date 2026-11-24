@@ -1,0 +1,43 @@
+name: Sync IdeaFast revenue
+
+# Once a day, copy IdeaFast's verified revenue from TrustMRR into the site.
+# If the numbers changed, it commits to main and Vercel puts the update live.
+# You can also run it by hand: GitHub > Actions > Sync IdeaFast revenue > Run workflow.
+
+on:
+  schedule:
+    - cron: "17 2 * * *" # every day at 02:17 UTC (07:47 in India)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-revenue
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Pull numbers from TrustMRR
+        run: node scripts/sync-revenue.mjs
+
+      - name: Commit and push if the numbers changed
+        run: |
+          if git diff --quiet; then
+            echo "Numbers unchanged. Nothing to publish."
+            exit 0
+          fi
+          git config user.name "Shubham Bhatt"
+          git config user.email "122717484+shubhambhatt037@users.noreply.github.com"
+          git add public
+          git commit -m "Sync IdeaFast revenue from TrustMRR ($(date -u +%F))"
+          git push

@@ -420,7 +420,7 @@
             <span class="k"><i class="p"></i> this month so far</span>
             <span class="k"><i class="f"></i> milestone (hover a bar)</span>
           </div>
-          <div class="rev-src">pulled from Dodo Payments by <a href="https://trustmrr.com/startup/ideafast" target="_blank" rel="noopener">TrustMRR</a> · synced <span data-synced>nov 23, 2026</span></div>
+          <div class="rev-src">pulled from Dodo Payments by <a href="https://trustmrr.com/startup/ideafast" target="_blank" rel="noopener">TrustMRR</a> · checked daily · updated <span data-updated>nov 23, 2026</span></div>
         </div>
       </section>
 
@@ -559,18 +559,29 @@
 
   <script>
     /* ------------------------------------------------------------------
-       EDIT YOUR NUMBERS HERE. Everything on the page updates from this.
-       v = revenue in USD for that month. partial = month not finished.
+       REVENUE: the block between the AUTO-SYNC markers is rewritten every
+       day by scripts/sync-revenue.mjs (GitHub Actions) from TrustMRR:
+       https://trustmrr.com/startup/ideafast.md
+       Don't edit it by hand. To add a milestone note, edit NOTES below.
+       v = verified revenue in USD. partial = the current, unfinished month.
        ------------------------------------------------------------------ */
+    // AUTO-SYNC:START
     const REVENUE = [
-      // Verified numbers from https://trustmrr.com/startup/ideafast.md (synced nov 23, 2026)
-      { m: "jun", v: 24,  note: "first sale ever: $5" },
-      { m: "jul", v: 0 },
-      { m: "aug", v: 0 },
-      { m: "sep", v: 98,  note: "total crossed $100" },
-      { m: "oct", v: 136 },
-      { m: "nov", v: 155, note: "$68 in a single day, twice", partial: true },
+      { month: "2026-06", v: 24 },
+      { month: "2026-07", v: 0 },
+      { month: "2026-08", v: 0 },
+      { month: "2026-09", v: 98 },
+      { month: "2026-10", v: 136 },
+      { month: "2026-11", v: 155, partial: true },
     ];
+    // AUTO-SYNC:END
+
+    // Milestone notes, shown when someone hovers a bar. Key = "YYYY-MM".
+    const NOTES = {
+      "2026-06": "first sale ever: $5",
+      "2026-09": "total crossed $100",
+      "2026-11": "$68 in a single day, twice",
+    };
 
     const TWEETS = [
       { id: "2123315445742854621", date: "nov 19, 2026",
@@ -583,13 +594,19 @@
 
     /* ---------------- revenue chart ---------------- */
     const fmt = n => "$" + n.toLocaleString("en-US");
-    const total = REVENUE.reduce((s, r) => s + r.v, 0);
-    const last = REVENUE[REVENUE.length - 1];
+    const MON = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+    const ALL = REVENUE.map(r => {
+      const [y, mm] = r.month.split("-");
+      return { ...r, y, m: MON[+mm - 1], note: NOTES[r.month] };
+    });
+    const SHOWN = ALL.slice(-12); // the chart shows the last 12 months; the total counts all of them
+    const total = ALL.reduce((s, r) => s + r.v, 0);
+    const last = ALL[ALL.length - 1];
     document.querySelectorAll("[data-total]").forEach(el => el.textContent = total.toLocaleString("en-US"));
-    document.querySelectorAll("[data-months]").forEach(el => el.textContent = REVENUE.length);
+    document.querySelectorAll("[data-months]").forEach(el => el.textContent = ALL.length);
     document.querySelectorAll("[data-thismonth]").forEach(el => el.textContent = fmt(last.v) + " this month");
 
-    const max = Math.max(...REVENUE.map(r => r.v));
+    const max = Math.max(...SHOWN.map(r => r.v));
     const step = max <= 250 ? 50 : max <= 600 ? 100 : max <= 1500 ? 250 : 500;
     const yMax = Math.max(step, Math.ceil(max / step) * step);
 
@@ -598,20 +615,20 @@
     for (let t = 0; t <= yMax; t += step) {
       html += `<div class="gridline" style="bottom:${(t / yMax) * 100}%"><span class="mono">${t >= 1000 ? "$" + t / 1000 + "K" : "$" + t}</span></div>`;
     }
-    html += `<div class="bars" style="--n:${REVENUE.length}">`;
-    REVENUE.forEach((r, i) => {
+    html += `<div class="bars" style="--n:${SHOWN.length}">`;
+    SHOWN.forEach((r, i) => {
       const h = (r.v / yMax) * 100;
       const cls = r.v === 0 ? "zero" : r.partial ? "partial" : "";
-      html += `<div class="col" tabindex="0" style="--h:${h}%;--d:${i * 60}ms" aria-label="${r.m}: ${fmt(r.v)}${r.note ? ", " + r.note : ""}">
+      html += `<div class="col" tabindex="0" style="--h:${h}%;--d:${i * 60}ms" aria-label="${r.m} ${r.y}: ${fmt(r.v)}${r.note ? ", " + r.note : ""}">
         <div class="bar ${cls}"></div>
         ${r.note ? `<span class="flag"></span>` : ""}
-        <div class="tip"><b class="mono">${fmt(r.v)}${r.partial ? " so far" : ""}</b>${r.note || r.m + " 2026"}</div>
+        <div class="tip"><b class="mono">${fmt(r.v)}${r.partial ? " so far" : ""}</b>${r.note || r.m + " " + r.y}</div>
       </div>`;
     });
     html += "</div>";
     chart.innerHTML = html;
-    document.getElementById("months").style.setProperty("--n", REVENUE.length);
-    document.getElementById("months").innerHTML = REVENUE.map(r => `<span>${r.m}</span>`).join("");
+    document.getElementById("months").style.setProperty("--n", SHOWN.length);
+    document.getElementById("months").innerHTML = SHOWN.map(r => `<span>${r.m}</span>`).join("");
 
     /* ---------------- sparkline ---------------- */
     function spark(svg, values) {
@@ -623,7 +640,7 @@
         `<path d="${line} L${W} ${H} L0 ${H} Z" fill="var(--spark-fill)"/>` +
         `<path d="${line}" fill="none" stroke="var(--text)" stroke-width="1.6" vector-effect="non-scaling-stroke" stroke-linejoin="round"/>`;
     }
-    spark(document.getElementById("spark-ideafast"), REVENUE.map(r => r.v));
+    spark(document.getElementById("spark-ideafast"), SHOWN.map(r => r.v));
 
     /* ---------------- tweets ---------------- */
     const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
