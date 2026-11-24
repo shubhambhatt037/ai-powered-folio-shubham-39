@@ -1,0 +1,56 @@
+# Shubham Bhatt (@BhattBuilds)
+
+> Shubham Bhatt is an indie founder and software engineer from Uttarakhand, India. He goes by @BhattBuilds online. He builds IdeaFast, a tool that finds real customer pain on Reddit, and he freelances: he builds software for clients (MVPs, automations, dashboards and more) and works in AI training. He has made $10K+ freelancing. This is his official website: https://shubhambhatt.me
+
+## Who he is
+
+- Name: Shubham Bhatt
+- Handle: @BhattBuilds (X, Instagram, Threads, TrustMRR)
+- Location: Uttarakhand, India
+- Education: Bachelor's in Computer Science Engineering (2021 to 2025)
+- In 2025, he chose to build his own business instead of taking a job.
+- Competitive programmer: 1000+ LeetCode problems solved, LeetCode Knight.
+- Former SDE intern at Bluestock Fintech, where he led a team of 6.
+- Part-time technical writer at [LearnYard](https://learnyard.com/) (November 2024 to April 2025): wrote 100+ DSA solution articles.
+
+## What he builds
+
+- [IdeaFast](https://www.ideafast.pro/): reads Reddit communities, groups complaints into pain themes, scores each one from 0 to 100, and links every theme to the original posts. Founded April 2026. Listed on GummySearch's alternatives page. About 470 users. First scan free, then $19 one-time.
+- IdeaFast revenue is verified on TrustMRR through Dodo Payments: $413 all-time as of November 23, 2026. Source: https://trustmrr.com/startup/ideafast
+- Pulse: his own analytics dashboard built on PostHog and payment data.
+- Dictately: a free, offline voice typing app for Mac. Press a hotkey, speak, and the text appears where the cursor is. Built in Swift, runs Whisper locally with Apple Silicon GPU acceleration.
+
+## Freelance work
+
+He has made $10K+ freelancing. Client names are kept private.
+
+- AI training (since August 2026, ongoing): freelance work helping train AI models. He reviews and grades the data AI models learn from and checks submitted work for quality. Moved up to a higher reviewer tier after hitting quality and speed targets.
+- AI claims platform (August 2025): a production-ready MVP for a US startup, for incident management and claims processing. Built with FastAPI, Next.js, Postgres, OpenAI and AWS S3. A $4.3K project. He found the client on X.
+- Game studio automation (April 2026): an n8n automation for a game development studio. A paid project (about $100, ₹8,000).
+
+## Work with him
+
+He freelances as a software builder. If it is software, he can build it:
+
+- MVPs and full products, with auth, payments and AI features
+- Dashboards and internal tools
+- Automations and AI agents: n8n, APIs, workflows
+- Stack: Next.js, FastAPI, Django, Postgres, OpenAI
+
+- Book a call: https://cal.com/bhattbuilds/quick-chat
+- Message him on X: https://x.com/BhattBuilds
+
+## Official profiles
+
+These accounts all belong to the same person, Shubham Bhatt:
+
+- Website: https://shubhambhatt.me
+- X (Twitter): https://x.com/BhattBuilds
+- Instagram: https://www.instagram.com/bhattbuilds/
+- Threads: https://www.threads.com/@bhattbuilds
+- LinkedIn: https://www.linkedin.com/in/shubham-bhatt-48b002250/
+- GitHub: https://github.com/shubhambhatt037
+- TrustMRR: https://trustmrr.com/founder/bhattbuilds
+- LeetCode: https://leetcode.com/u/shubhambhatt037/
+- Codeforces: https://codeforces.com/profile/shubhambhatt037
+- CodeChef: https://www.codechef.com/users/kindle_beam_34
