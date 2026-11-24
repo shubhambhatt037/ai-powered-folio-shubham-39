@@ -9,6 +9,8 @@ A single static page. No build step, no dependencies.
 - `public/index.html`: the whole site (HTML, CSS and JS in one file)
 - `public/llms.txt`: plain summary for AI assistants
 - `public/robots.txt`, `public/sitemap.xml`: for search engines
+- `public/og.jpg`: the 1200x630 preview image shown when the link is shared
+- `public/favicon.ico`, `icon-192.png`, `icon-512.png`, `apple-touch-icon.png`, `site.webmanifest`: browser and phone icons
 - `public/assets/`: images
 - `vercel.json`: tells Vercel to serve `public/` as is
 

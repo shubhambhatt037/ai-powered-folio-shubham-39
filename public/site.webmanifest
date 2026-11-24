@@ -1,0 +1,13 @@
+{
+  "name": "Shubham Bhatt (@BhattBuilds)",
+  "short_name": "Shubham Bhatt",
+  "description": "Founder of IdeaFast and freelance software builder from Uttarakhand, India.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#fbfbfa",
+  "theme_color": "#fbfbfa",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
