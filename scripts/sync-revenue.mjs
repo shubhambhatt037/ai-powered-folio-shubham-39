@@ -19,7 +19,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 
 const SOURCE = "https://trustmrr.com/startup/ideafast.md";
-const FILES = { html: "public/index.html", llms: "public/llms.txt", sitemap: "public/sitemap.xml" };
+const FILES = { html: "public/index.html", llms: "public/llms.txt", sitemap: "public/sitemap.xml", otherPages: ["public/about.html"] };
 const SHORT = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
 const LONG = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -88,6 +88,15 @@ html = set(html, /(data-thismonth>)[^<]*(<\/span>)/, `$${last.v.toLocaleString("
 html = set(html, /(<span data-updated>)[^<]*(<\/span>)/, syncedShort);
 html = set(html, /("dateModified": ")[^"]*(")/, today);
 writeFileSync(FILES.html, html);
+
+// Other pages that show the all-time total (e.g. /about)
+for (const page of FILES.otherPages) {
+  let text;
+  try { text = readFileSync(page, "utf8"); } catch { continue; }
+  text = set(text, /(<span data-total>)[^<]*(<\/span>)/g, total.toLocaleString("en-US"));
+  text = set(text, /("dateModified": ")[^"]*(")/, today);
+  writeFileSync(page, text);
+}
 
 let llms = readFileSync(FILES.llms, "utf8");
 llms = llms.replace(/\$[\d,]+ all-time as of [A-Z][a-z]+ \d{1,2}, \d{4}/, () => `$${total.toLocaleString("en-US")} all-time as of ${syncedLong}`);
