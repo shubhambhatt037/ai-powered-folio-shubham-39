@@ -5,15 +5,25 @@
   "cleanUrls": true,
   "redirects": [
     {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.shubhambhatt.me" }],
-      "destination": "https://shubhambhatt.me/:path*",
+      "source": "/:path(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.shubhambhatt.me"
+        }
+      ],
+      "destination": "https://shubhambhatt.me/:path",
       "permanent": true
     },
     {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "shubhambhatt.vercel.app" }],
-      "destination": "https://shubhambhatt.me/:path*",
+      "source": "/:path(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "shubhambhatt.vercel.app"
+        }
+      ],
+      "destination": "https://shubhambhatt.me/:path",
       "permanent": true
     },
     {
