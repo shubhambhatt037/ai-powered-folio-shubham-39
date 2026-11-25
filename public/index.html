@@ -75,7 +75,13 @@
         "familyName": "Bhatt",
         "alternateName": ["BhattBuilds", "@BhattBuilds"],
         "url": "https://shubhambhatt.me/",
-        "image": "https://shubhambhatt.me/assets/avatar.jpg",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://shubhambhatt.me/assets/shubham-bhatt.jpg",
+          "width": 400,
+          "height": 400,
+          "caption": "Shubham Bhatt, founder of IdeaFast"
+        },
         "description": "Indie founder and software engineer from Uttarakhand, India. Builds IdeaFast, which finds real customer pain on Reddit. Freelance software builder: builds MVPs, full products, automations, AI agents, dashboards and internal tools for clients. Also freelances in AI training (reviewing AI training data). Has made $10K+ freelancing.",
         "jobTitle": "Founder",
         "worksFor": { "@id": "https://shubhambhatt.me/#ideafast" },
@@ -330,6 +336,7 @@
     .tweet time { display: block; margin-top: 12px; font-size: 12px; color: var(--faint); }
 
     footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; border-top: 1px solid var(--line); padding-top: 20px; font-size: 13px; color: var(--faint); }
+    footer .whois { flex-basis: 100%; margin: 0 0 4px; max-width: 72ch; color: var(--muted); line-height: 1.55; }
     footer button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 
     /* ---------- responsive ---------- */
@@ -355,7 +362,7 @@
 
     <!-- ===================== PROFILE ===================== -->
     <aside class="profile">
-      <img class="avatar" src="assets/avatar.jpg" alt="Shubham Bhatt" width="84" height="84" />
+      <img class="avatar" src="assets/shubham-bhatt.jpg" alt="Shubham Bhatt, founder of IdeaFast" width="84" height="84" />
       <h1>Shubham Bhatt</h1>
       <p class="handle">@BhattBuilds</p>
 
@@ -555,6 +562,7 @@
       </section>
 
       <footer>
+        <p class="whois">Shubham Bhatt (@BhattBuilds) is an entrepreneur and software engineer from Uttarakhand, India. He is the founder of IdeaFast and builds software for clients as a freelancer.</p>
         <span>built by shubham, from the mountains of uttarakhand.</span>
         <button type="button" id="theme">toggle dark mode</button>
       </footer>
@@ -651,7 +659,7 @@
     document.getElementById("tweets").innerHTML = TWEETS.map(t => `
       <a class="card tweet" href="https://x.com/BhattBuilds/status/${t.id}" target="_blank" rel="noopener">
         <div class="tw-head">
-          <img src="assets/avatar.jpg" alt="" width="28" height="28" />
+          <img src="assets/shubham-bhatt.jpg" alt="" width="28" height="28" />
           <div><b>Shubham Bhatt</b><br /><span>@BhattBuilds</span></div>
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         </div>

@@ -31,6 +31,7 @@ jobs:
         run: node scripts/sync-revenue.mjs
 
       - name: Commit and push if the numbers changed
+        id: commit
         run: |
           if git diff --quiet; then
             echo "Numbers unchanged. Nothing to publish."
@@ -41,3 +42,13 @@ jobs:
           git add public
           git commit -m "Sync IdeaFast revenue from TrustMRR ($(date -u +%F))"
           git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      # Pushes made by this workflow don't start other workflows, so ping IndexNow here.
+      - name: Wait for Vercel to publish
+        if: steps.commit.outputs.changed == 'true'
+        run: sleep 90
+
+      - name: Ping IndexNow
+        if: steps.commit.outputs.changed == 'true'
+        run: node scripts/indexnow.mjs

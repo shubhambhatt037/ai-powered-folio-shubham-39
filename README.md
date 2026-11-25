@@ -14,6 +14,8 @@ A single static page. No build step, no dependencies.
 - `public/assets/`: images
 - `vercel.json`: tells Vercel to serve `public/` as is
 - `scripts/sync-revenue.mjs` and `.github/workflows/sync-revenue.yml`: daily revenue sync from TrustMRR
+- `scripts/indexnow.mjs`, `.github/workflows/indexnow.yml` and `public/<key>.txt`: after each update, tells Bing (IndexNow) to re-crawl the site
+- `vercel.json` also redirects `www.shubhambhatt.me` and `shubhambhatt.vercel.app` to `shubhambhatt.me`, so search engines see one address
 
 ## Revenue numbers (automatic)
 

@@ -1,0 +1,32 @@
+name: Ping search engines (IndexNow)
+
+# After a change to the site lands on main, wait for Vercel to publish it,
+# then tell Bing (IndexNow) to re-crawl the pages in the sitemap.
+# The daily revenue sync pings on its own (its commits can't start other workflows).
+
+on:
+  push:
+    branches: [main]
+    paths: ["public/**"]
+  workflow_dispatch:
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: true
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Wait for Vercel to publish
+        run: sleep 90
+
+      - name: Ping IndexNow
+        run: node scripts/indexnow.mjs

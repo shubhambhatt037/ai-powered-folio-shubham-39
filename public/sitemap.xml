@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://shubhambhatt.me/</loc>
-    <lastmod>2026-11-24</lastmod>
+    <lastmod>2026-11-25</lastmod>
+    <image:image>
+      <image:loc>https://shubhambhatt.me/assets/shubham-bhatt.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://shubhambhatt.me/og.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://shubhambhatt.me/llms.txt</loc>
-    <lastmod>2026-11-24</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
 </urlset>
