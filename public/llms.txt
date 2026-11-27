@@ -16,7 +16,7 @@
 ## What he builds
 
 - [IdeaFast](https://www.ideafast.pro/): reads Reddit communities, groups complaints into pain themes, scores each one from 0 to 100, and links every theme to the original posts. Founded April 2026. Listed on GummySearch's alternatives page. About 470 users. First scan free, then $19 one-time.
-- IdeaFast revenue is verified on TrustMRR through Dodo Payments: $413 all-time as of November 23, 2026. Source: https://trustmrr.com/startup/ideafast
+- IdeaFast revenue is verified on TrustMRR through Dodo Payments: $432 all-time as of November 27, 2026. Source: https://trustmrr.com/startup/ideafast
 - Pulse: his own analytics dashboard built on PostHog and payment data.
 - Dictately: a free, offline voice typing app for Mac. Press a hotkey, speak, and the text appears where the cursor is. Built in Swift, runs Whisper locally with Apple Silicon GPU acceleration.
 

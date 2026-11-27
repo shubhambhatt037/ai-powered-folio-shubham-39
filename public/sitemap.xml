@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://shubhambhatt.me/</loc>
-    <lastmod>2026-11-25</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image>
       <image:loc>https://shubhambhatt.me/assets/shubham-bhatt.jpg</image:loc>
     </image:image>
@@ -13,10 +13,10 @@
   </url>
   <url>
     <loc>https://shubhambhatt.me/about</loc>
-    <lastmod>2026-11-25</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://shubhambhatt.me/llms.txt</loc>
-    <lastmod>2026-11-25</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
 </urlset>
